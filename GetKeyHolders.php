@@ -1,5 +1,6 @@
 <?php
 
+// The credentials were changed to match my DBNgin database.
 $database_user = "root";
 $database_password = "";
 
@@ -18,7 +19,7 @@ try {
     foreach ($contacts as $contact) {
         // print_r($contact); - to see the actual raw data returned from the database.
         $telephone = $pdo->prepare("SELECT `telephone` FROM `contact_details` WHERE `name` = ?");
-        $telephone->execute(array($contact[0])); // It is a multi-dimensional array but the values do not have the field names as keys (as specified in PDO::ATTR_DEFAULT_FETCH_MODE) -- so we need to use the index to access the values.
+        $telephone->execute(array($contact[0])); // It is a multi-dimensional array but the values do not have the field names as keys (as specified in PDO::ATTR_DEFAULT_FETCH_MODE) -- so we need to use the index to access the values. Also, the execute method takes an array of values to be bound to the query and not a single value.
         $telephone = $telephone->fetchColumn();
 
         /**

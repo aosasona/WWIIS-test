@@ -24,7 +24,7 @@ class LetterCounter
 			}
 		}
 
-		$final_array = [];
+		$final_array = []; // Why the array ? To join the strings without having , at the last end of the final string.
 		foreach ($letters_count as $letter => $count) {
 			$count_text = "{$letter}:{$count}";
 			array_push($final_array, $count_text);
